@@ -1,0 +1,394 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Indiana football 2015, 2020, 2025 and 2026 seasons compared side by side.">
+<style>*,*::before,*::after{box-sizing:border-box}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>Hoosiers by the Numbers</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&family=Barlow:wght@400;500;600&family=Barlow+Condensed:wght@500;600;700&display=swap">
+<style>
+/* Layout: crimson stadium band with yard-line ticks, then season tickets, small-multiple comparisons, margin strips, leaders board */
+:root {
+  --bg: #F3EDE1;
+  --surface: #FBF8F1;
+  --ink: #2B1615;
+  --muted: #6F5B55;
+  --line: #E1D5C2;
+  --crimson: #990000;
+  --crimson-soft: #B8302E;
+  --band: #990000;
+  --band-ink: #F6F0E2;
+  --opp: #CDBFA9;
+  --win: #990000;
+  --loss: #A99A86;
+  --font-display: "Big Shoulders Display", "Arial Narrow", Impact, sans-serif;
+  --font-body: "Barlow", "Helvetica Neue", Arial, sans-serif;
+  --font-label: "Barlow Condensed", "Arial Narrow", Arial, sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #170D0D; --surface: #221414; --ink: #F2EADB; --muted: #B9A79B; --line: #3B2727;
+    --crimson: #E8504F; --crimson-soft: #F07A72; --band: #7A0A0A; --band-ink: #F6F0E2;
+    --opp: #6A5850; --win: #E8504F; --loss: #6A5850; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #170D0D; --surface: #221414; --ink: #F2EADB; --muted: #B9A79B; --line: #3B2727;
+  --crimson: #E8504F; --crimson-soft: #F07A72; --band: #7A0A0A; --band-ink: #F6F0E2;
+  --opp: #6A5850; --win: #E8504F; --loss: #6A5850; color-scheme: dark;
+}
+body { background: var(--bg); color: var(--ink); font-family: var(--font-body); font-size: 15px; line-height: 1.5; }
+.wrap { max-width: 1120px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+
+/* Header band */
+.band { background: var(--band); color: var(--band-ink); position: relative; }
+.band::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 14px;
+  background: repeating-linear-gradient(90deg, transparent 0 calc(10% - 2px), rgba(246,240,226,.55) calc(10% - 2px) 10%);
+  opacity: .5; }
+.band .wrap { padding-block: 40px 52px; display: grid; gap: 10px; }
+.eyebrow { font-family: var(--font-label); text-transform: uppercase; letter-spacing: .14em; font-size: 13px; font-weight: 600; opacity: .85; }
+h1 { font-family: var(--font-display); font-weight: 900; text-transform: uppercase; font-size: clamp(44px, 9vw, 96px); line-height: .9; margin: 0; letter-spacing: .01em; text-wrap: balance; }
+.lede { max-width: 62ch; margin: 6px 0 0; font-size: 16px; opacity: .92; }
+
+main .wrap { padding-block: 36px 56px; display: grid; gap: 52px; }
+section { display: grid; gap: 18px; min-width: 0; }
+h2 { font-family: var(--font-display); font-weight: 800; text-transform: uppercase; font-size: clamp(28px, 4.4vw, 40px); line-height: 1; margin: 0; letter-spacing: .02em; text-wrap: balance; }
+.sec-head { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 6px 20px; border-bottom: 2px solid var(--ink); padding-bottom: 8px; }
+.sec-note { color: var(--muted); font-size: 14px; max-width: 60ch; margin: 0; }
+
+/* Season tickets */
+.tickets { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; margin-top: -78px; position: relative; z-index: 1; }
+.ticket { background: var(--surface); border: 1px solid var(--line); border-top: 6px solid var(--crimson); padding: 16px 18px 18px; display: grid; gap: 10px; align-content: start; box-shadow: 0 10px 24px -18px rgba(60,10,10,.55); }
+.ticket .yr { font-family: var(--font-display); font-weight: 900; font-size: 44px; line-height: .9; color: var(--crimson); }
+.ticket .rec { font-family: var(--font-display); font-weight: 800; font-size: 30px; line-height: 1; }
+.ticket .rec small { font-family: var(--font-label); font-weight: 600; font-size: 14px; color: var(--muted); letter-spacing: .04em; margin-left: 6px; }
+.ticket .tag { font-family: var(--font-label); font-weight: 600; text-transform: uppercase; letter-spacing: .08em; font-size: 12px; color: var(--muted); }
+.ticket .tag.live { color: var(--crimson); }
+.ticket dl { display: grid; grid-template-columns: 1fr auto; gap: 4px 10px; margin: 0; font-variant-numeric: tabular-nums; border-top: 1px dashed var(--line); padding-top: 10px; }
+.ticket dt { color: var(--muted); font-size: 13px; }
+.ticket dd { margin: 0; font-weight: 600; text-align: right; font-size: 14px; }
+.ticket dd.pos { color: var(--crimson); }
+
+/* Legend */
+.legend { display: flex; gap: 16px; font-family: var(--font-label); font-size: 13px; text-transform: uppercase; letter-spacing: .08em; color: var(--muted); align-items: center; flex-wrap: wrap; }
+.sw { display: inline-block; width: 14px; height: 10px; margin-right: 6px; vertical-align: -1px; }
+.sw.ind { background: var(--crimson); } .sw.opp { background: var(--opp); }
+
+/* Metric small multiples */
+.metrics { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 320px), 1fr)); gap: 14px; }
+.metric { background: var(--surface); border: 1px solid var(--line); padding: 14px 16px 16px; display: grid; gap: 10px; min-width: 0; }
+.metric h3 { margin: 0; font-family: var(--font-label); font-weight: 700; text-transform: uppercase; letter-spacing: .07em; font-size: 15px; display: flex; justify-content: space-between; gap: 8px; }
+.metric h3 span { color: var(--muted); font-weight: 500; letter-spacing: .04em; font-size: 12px; text-transform: none; align-self: center; text-align: right; }
+.mrow { display: grid; grid-template-columns: 38px 1fr; gap: 10px; align-items: center; }
+.mrow .y { font-family: var(--font-display); font-weight: 800; font-size: 17px; color: var(--muted); }
+.bars { display: grid; gap: 3px; min-width: 0; }
+.bar { display: grid; grid-template-columns: 1fr 56px; align-items: center; gap: 8px; font-variant-numeric: tabular-nums; font-size: 13px; }
+.bar i { display: block; height: 9px; background: var(--opp); min-width: 2px; }
+.bar.ind i { background: var(--crimson); height: 11px; }
+.bar b { font-weight: 600; text-align: right; }
+.bar.opp b { font-weight: 400; color: var(--muted); }
+.track { min-width: 0; }
+
+/* Margin strips */
+.strips { background: var(--surface); border: 1px solid var(--line); padding: 16px; display: grid; gap: 8px; min-width: 0; }
+.strip { display: grid; grid-template-columns: 52px 1fr; gap: 10px; align-items: center; }
+.strip .y { font-family: var(--font-display); font-weight: 800; font-size: 22px; color: var(--crimson); }
+.strip svg { width: 100%; height: auto; display: block; overflow: visible; }
+.strip text { fill: var(--muted); font-family: var(--font-label); font-size: 11px; }
+.zero { stroke: var(--line); stroke-width: 1; }
+.g { cursor: pointer; outline: none; }
+.g rect.hit { fill: transparent; }
+.g:hover rect.m, .g:focus rect.m { opacity: .7; }
+.g:focus-visible rect.hit { stroke: var(--ink); stroke-width: 1; }
+.readout { min-height: 24px; font-size: 14px; color: var(--muted); border-top: 1px dashed var(--line); padding-top: 8px; font-variant-numeric: tabular-nums; }
+.readout strong { color: var(--ink); }
+
+/* Quarters */
+.qgrid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; }
+.qcard { background: var(--surface); border: 1px solid var(--line); padding: 14px 16px; display: grid; gap: 8px; min-width: 0; }
+.qcard .y { font-family: var(--font-display); font-weight: 800; font-size: 22px; color: var(--crimson); }
+.qcard svg { width: 100%; height: auto; display: block; }
+.qcard text { fill: var(--muted); font-family: var(--font-label); font-size: 11px; }
+.qcard text.v { fill: var(--ink); font-weight: 600; }
+
+/* Leaders */
+.table-wrap { overflow-x: auto; background: var(--surface); border: 1px solid var(--line); }
+table { border-collapse: collapse; width: 100%; min-width: 760px; font-variant-numeric: tabular-nums; }
+th, td { text-align: left; padding: 11px 14px; border-bottom: 1px solid var(--line); vertical-align: top; }
+thead th { font-family: var(--font-display); font-weight: 900; font-size: 26px; color: var(--crimson); border-bottom: 2px solid var(--ink); }
+tbody th { font-family: var(--font-label); font-weight: 700; text-transform: uppercase; letter-spacing: .08em; font-size: 13px; color: var(--muted); white-space: nowrap; }
+td .n { font-weight: 600; display: block; }
+td .s { color: var(--muted); font-size: 13px; }
+tbody tr:last-child th, tbody tr:last-child td { border-bottom: 0; }
+
+footer { color: var(--muted); font-size: 13px; border-top: 1px solid var(--line); padding-top: 14px; }
+
+.tip { position: fixed; pointer-events: none; background: var(--ink); color: var(--bg); font-size: 13px; padding: 6px 9px; z-index: 20; max-width: 240px; font-variant-numeric: tabular-nums; }
+
+@media (max-width: 900px) {
+  .tickets, .qgrid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 460px) {
+  .tickets { grid-template-columns: 1fr; }
+  .qgrid { grid-template-columns: 1fr; }
+  .strip { grid-template-columns: 1fr; gap: 2px; }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .bar i { transition: width .5s ease-out; }
+}
+</style>
+
+</head>
+<body>
+<header class="band">
+  <div class="wrap">
+    <div class="eyebrow">Indiana Football · 2015 · 2020 · 2025 · 2026</div>
+    <h1>Hoosiers by<br>the Numbers</h1>
+    <p class="lede">Four seasons side by side, from a 6–7 bowl team that allowed 37.6 points a game to a 16–0 season and a 2026 team at 7–1. Each chart compares Indiana with its opponents.</p>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+    <div class="tickets" id="tickets"></div>
+
+    <section aria-labelledby="h-compare">
+      <div class="sec-head">
+        <h2 id="h-compare">Indiana vs. opponents</h2>
+        <div class="legend"><span><i class="sw ind"></i>Indiana</span><span><i class="sw opp"></i>Opponents</span></div>
+      </div>
+      <p class="sec-note">Season lengths differ (13, 8, 16 and 8 games so far), so most figures are shown per game or as rates.</p>
+      <div class="metrics" id="metrics"></div>
+    </section>
+
+    <section aria-labelledby="h-games">
+      <div class="sec-head">
+        <h2 id="h-games">Every game, by margin</h2>
+        <p class="sec-note">Bars above the line are wins and bars below are losses, drawn to the same scale. Select a bar to see the score.</p>
+      </div>
+      <div class="strips" id="strips">
+        <div class="readout" id="readout" aria-live="polite">Hover over or tap a game.</div>
+      </div>
+    </section>
+
+    <section aria-labelledby="h-qtr">
+      <div class="sec-head">
+        <h2 id="h-qtr">Points per game by quarter</h2>
+        <div class="legend"><span><i class="sw ind"></i>Indiana</span><span><i class="sw opp"></i>Opponents</span></div>
+      </div>
+      <div class="qgrid" id="qgrid"></div>
+    </section>
+
+    <section aria-labelledby="h-leaders">
+      <div class="sec-head">
+        <h2 id="h-leaders">Season leaders</h2>
+        <p class="sec-note">The top player in each category, with the stat line from that season.</p>
+      </div>
+      <div class="table-wrap"><table id="leaders"></table></div>
+    </section>
+
+    <footer>Source: Indiana season stat reports (2015 final, 2020 final, 2025 through Jan 19, 2026, 2026 through Oct 24, 2026), converted to CSV. This fan-made comparison is not an official Indiana University page.</footer>
+  </div>
+</main>
+<div class="tip" id="tip" hidden></div>
+
+<script>
+const SEASONS = {
+  2015: { games: 13, rec: "6–7", conf: "2–6 Big Ten", note: "Final · lost bowl to Duke in OT",
+    pf: 475, pa: 489, ypg: [504.3, 509.5], ypp: [6.2, 6.4], rush: [210.5, 195.7], pass: [293.8, 313.8],
+    third: [[77,202],[88,209]], rztd: [[36,61],[30,48]], give: 14, take: 22, sacks: [30, 13], pen: [59.8, 59.9], top: ["29:09","30:51"],
+    q: { ind: [77,156,147,88], opp: [98,156,58,160], ot: [7,17] } },
+  2020: { games: 8, rec: "6–2", conf: "6–1 Big Ten", note: "Final · shortened season",
+    pf: 231, pa: 162, ypg: [359.5, 378.1], ypp: [5.0, 5.5], rush: [108.6, 137.1], pass: [250.9, 241.0],
+    third: [[44,115],[42,112]], rztd: [[23,35],[12,25]], give: 12, take: 20, sacks: [25, 10], pen: [44.8, 70.8], top: ["31:15","28:40"],
+    q: { ind: [41,68,51,63], opp: [34,34,46,41], ot: [8,7] } },
+  2025: { games: 16, rec: "16–0", conf: "9–0 Big Ten", note: "Final · beat Miami 27–21 in the title game",
+    pf: 666, pa: 187, ypg: [452.0, 266.0], ypp: [6.8, 4.7], rush: [212.9, 77.2], pass: [239.1, 188.8],
+    third: [[113,200],[62,206]], rztd: [[56,77],[10,27]], give: 8, take: 30, sacks: [46, 25], pen: [27.6, 34.9], top: ["33:29","26:30"],
+    q: { ind: [142,198,188,138], opp: [47,46,37,57], ot: [0,0] } },
+  2026: { games: 8, rec: "7–1", conf: "4–1 Big Ten", note: "In progress · through Oct 24", live: true,
+    pf: 269, pa: 96, ypg: [419.6, 264.6], ypp: [7.0, 4.1], rush: [191.5, 73.1], pass: [228.1, 191.5],
+    third: [[41,94],[40,123]], rztd: [[21,30],[7,18]], give: 4, take: 8, sacks: [28, 11], pen: [33.1, 41.4], top: ["29:11","30:49"],
+    q: { ind: [52,78,58,74], opp: [13,13,30,40], ot: [7,0] } },
+};
+const YEARS = Object.keys(SEASONS);
+
+const GAMES = {
+  2015: [["Southern Illinois",48,47],["FIU",36,22],["WKU",38,35],["at Wake Forest",31,24],["#1 Ohio State",27,34],["at Penn State",7,29],["Rutgers",52,55],["at #7 Michigan State",26,52],["#10 Iowa",27,35],["#15 Michigan (OT)",41,48],["at Maryland",47,28],["at Purdue",54,36],["vs Duke (OT)",41,44]],
+  2020: [["#7 Penn State (OT)",36,35],["at Rutgers",37,21],["#23 Michigan",38,21],["at Michigan State",24,0],["at #3 Ohio State",35,42],["Maryland",27,11],["at #18 Wisconsin",14,6],["vs Ole Miss",20,26]],
+  2025: [["Old Dominion",27,14],["Kennesaw St.",56,9],["Indiana St.",73,0],["Illinois",63,10],["at Iowa",20,15],["at Oregon",30,20],["Michigan St.",38,13],["UCLA",56,6],["at Maryland",55,10],["at Penn St.",27,24],["Wisconsin",31,7],["at Purdue",56,3],["vs Ohio St.",13,10],["vs #9 Alabama",38,3],["vs Oregon",56,22],["vs #10 Miami (FL)",27,21]],
+  2026: [["North Texas",52,16],["Howard",55,0],["Western Ky.",38,0],["Northwestern",29,23],["at Rutgers",47,15],["at Nebraska",20,17],["Ohio St.",15,19],["at Michigan",13,6]],
+};
+
+const LEADERS = [
+  ["Passing", {
+    2015: ["Nate Sudfeld", "3,573 yds · 27 TD · 7 INT"], 2020: ["Michael Penix Jr.", "1,645 yds · 14 TD · 4 INT"],
+    2025: ["Fernando Mendoza", "3,535 yds · 41 TD · 72.0%"], 2026: ["Josh Hoover", "1,741 yds · 18 TD · 1 INT"] }],
+  ["Rushing", {
+    2015: ["Jordan Howard", "1,213 yds · 6.2 avg · 9 TD"], 2020: ["Stevie Scott III", "561 yds · 10 TD"],
+    2025: ["Roman Hemby", "1,120 yds · 4.9 avg · 7 TD"], 2026: ["Turbo Richard", "711 yds · 6.7 avg · 6 TD"] }],
+  ["Receiving", {
+    2015: ["Simmie Cobbs Jr.", "60 rec · 1,035 yds · 4 TD"], 2020: ["Ty Fryfogle", "37 rec · 721 yds · 7 TD"],
+    2025: ["Omar Cooper Jr.", "69 rec · 937 yds · 13 TD"], 2026: ["Charlie Becker", "42 rec · 726 yds · 8 TD"] }],
+  ["Tackles", {
+    2015: ["Marcus Oliver", "112 total"], 2020: ["Micah McFadden", "58 total"],
+    2025: ["Rolijah Hardy", "102 total · 15 TFL"], 2026: ["Isaiah Jones", "59 total"] }],
+  ["Sacks", {
+    2015: ["Nick Mangieri", "9.5 sacks"], 2020: ["Micah McFadden", "6.0 sacks"],
+    2025: ["Rolijah Hardy", "8.0 sacks"], 2026: ["Tobi Osunsanmi", "9.0 sacks"] }],
+  ["Interceptions", {
+    2015: ["Jonathan Crawford", "4 INT"], 2020: ["Jamar Johnson / Jaylin Williams", "4 INT each"],
+    2025: ["Louis Moore", "6 INT"], 2026: ["Amare Ferrell", "3 INT"] }],
+  ["Points", {
+    2015: ["Griffin Oakes", "125 pts · 24/29 FG"], 2020: ["Stevie Scott III", "60 pts · 10 TD"],
+    2025: ["Nicolas Radicic", "141 pts · 18/19 FG"], 2026: ["Charlie Becker", "48 pts · 8 TD"] }],
+];
+
+const pct = ([a, b]) => 100 * a / b;
+const secs = t => { const [m, s] = t.split(":").map(Number); return m * 60 + s; };
+const fmt1 = v => v.toFixed(1);
+
+const METRICS = [
+  { name: "Points per game", unit: "points", get: s => [s.pf / s.games, s.pa / s.games], fmt: fmt1 },
+  { name: "Yards per game", unit: "total offense", get: s => s.ypg, fmt: fmt1 },
+  { name: "Yards per play", unit: "efficiency", get: s => s.ypp, fmt: fmt1 },
+  { name: "Rushing yards per game", unit: "ground game", get: s => s.rush, fmt: fmt1 },
+  { name: "Passing yards per game", unit: "air game", get: s => s.pass, fmt: fmt1 },
+  { name: "Third-down conversions", unit: "%", get: s => [pct(s.third[0]), pct(s.third[1])], fmt: v => v.toFixed(0) + "%" },
+  { name: "Red-zone TD rate", unit: "TDs per trip", get: s => [pct(s.rztd[0]), pct(s.rztd[1])], fmt: v => v.toFixed(0) + "%" },
+  { name: "Turnovers per game", unit: "Indiana: lost · Opp: lost", get: s => [s.give / s.games, s.take / s.games], fmt: v => v.toFixed(2), lowerIsBetter: true },
+  { name: "Sacks per game", unit: "made by each defense", get: s => [s.sacks[0] / s.games, s.sacks[1] / s.games], fmt: v => v.toFixed(1) },
+  { name: "Penalty yards per game", unit: "", get: s => s.pen, fmt: fmt1, lowerIsBetter: true },
+  { name: "Time of possession", unit: "per game", get: s => [secs(s.top[0]), secs(s.top[1])], fmt: v => `${Math.floor(v / 60)}:${String(Math.round(v % 60)).padStart(2, "0")}`, floor: 20 * 60 },
+];
+
+/* Season tickets */
+const tickets = document.getElementById("tickets");
+YEARS.forEach(y => {
+  const s = SEASONS[y];
+  const margin = (s.pf - s.pa) / s.games;
+  const to = s.take - s.give;
+  const el = document.createElement("article");
+  el.className = "ticket";
+  el.innerHTML = `
+    <div class="yr">${y}</div>
+    <div class="rec">${s.rec}<small>${s.conf}</small></div>
+    <div class="tag${s.live ? " live" : ""}">${s.note}</div>
+    <dl>
+      <dt>Points for / against</dt><dd>${(s.pf / s.games).toFixed(1)} / ${(s.pa / s.games).toFixed(1)}</dd>
+      <dt>Avg. scoring margin</dt><dd class="${margin > 0 ? "pos" : ""}">${margin > 0 ? "+" : ""}${margin.toFixed(1)}</dd>
+      <dt>Turnover margin</dt><dd class="${to > 0 ? "pos" : ""}">${to > 0 ? "+" : ""}${to}</dd>
+      <dt>Yards per play</dt><dd>${s.ypp[0].toFixed(1)} vs ${s.ypp[1].toFixed(1)}</dd>
+    </dl>`;
+  tickets.appendChild(el);
+});
+
+/* Metric small multiples */
+const metrics = document.getElementById("metrics");
+METRICS.forEach(m => {
+  const vals = YEARS.map(y => m.get(SEASONS[y]));
+  const floor = m.floor || 0;
+  const max = Math.max(...vals.flat()) - floor;
+  const card = document.createElement("article");
+  card.className = "metric";
+  card.innerHTML = `<h3>${m.name}<span>${m.unit}${m.lowerIsBetter ? " · lower is better" : ""}</span></h3>`;
+  YEARS.forEach((y, i) => {
+    const [a, b] = vals[i];
+    const row = document.createElement("div");
+    row.className = "mrow";
+    row.innerHTML = `<div class="y">${y}</div><div class="bars">
+      <div class="bar ind"><div class="track"><i style="width:${(100 * (a - floor) / max).toFixed(1)}%"></i></div><b>${m.fmt(a)}</b></div>
+      <div class="bar opp"><div class="track"><i style="width:${(100 * (b - floor) / max).toFixed(1)}%"></i></div><b>${m.fmt(b)}</b></div>
+    </div>`;
+    card.appendChild(row);
+  });
+  if (m.floor) card.insertAdjacentHTML("beforeend", `<div class="sec-note" style="font-size:12px">Bars start at 20:00.</div>`);
+  metrics.appendChild(card);
+});
+
+/* Margin strips: one shared scale for every season */
+const NS = "http://www.w3.org/2000/svg";
+const strips = document.getElementById("strips");
+const readout = document.getElementById("readout");
+const tip = document.getElementById("tip");
+const MAXG = 16, W = 640, H = 120, MID = H / 2, LIM = 75;
+const yScale = v => MID - (v / LIM) * (MID - 8);
+YEARS.forEach(y => {
+  const row = document.createElement("div");
+  row.className = "strip";
+  row.innerHTML = `<div class="y">${y}</div>`;
+  const svg = document.createElementNS(NS, "svg");
+  svg.setAttribute("viewBox", `0 0 ${W} ${H}`);
+  svg.setAttribute("role", "img");
+  const games = GAMES[y];
+  const wins = games.filter(g => g[1] > g[2]).length;
+  svg.setAttribute("aria-label", `${y}: ${wins} wins, ${games.length - wins} losses`);
+  const slot = W / MAXG;
+  const zero = document.createElementNS(NS, "line");
+  Object.entries({ x1: 0, x2: W, y1: MID, y2: MID, class: "zero" }).forEach(([k, v]) => zero.setAttribute(k, v));
+  svg.appendChild(zero);
+  games.forEach(([opp, us, them], i) => {
+    const d = us - them, x = i * slot + slot * 0.18, w = slot * 0.64;
+    const g = document.createElementNS(NS, "g");
+    g.setAttribute("class", "g"); g.setAttribute("tabindex", "0");
+    const label = `${y} · Game ${i + 1}: ${opp}, ${d > 0 ? "W" : "L"} ${us}–${them} (${d > 0 ? "+" : ""}${d})`;
+    g.setAttribute("aria-label", label);
+    const hit = document.createElementNS(NS, "rect");
+    Object.entries({ x: i * slot, y: 0, width: slot, height: H, class: "hit" }).forEach(([k, v]) => hit.setAttribute(k, v));
+    const r = document.createElementNS(NS, "rect");
+    const top = Math.min(yScale(d), MID), h = Math.max(Math.abs(yScale(d) - MID), 1.5);
+    Object.entries({ x, y: top, width: w, height: h, class: "m", fill: d > 0 ? "var(--win)" : "var(--loss)" }).forEach(([k, v]) => r.setAttribute(k, v));
+    const t = document.createElementNS(NS, "text");
+    t.setAttribute("x", x + w / 2); t.setAttribute("text-anchor", "middle");
+    t.setAttribute("y", d > 0 ? top - 3 : top + h + 11);
+    t.textContent = (d > 0 ? "+" : "") + d;
+    g.append(hit, r, t);
+    const show = e => {
+      readout.innerHTML = `<strong>${y} · Game ${i + 1}</strong> · ${opp} · ${d > 0 ? "Won" : "Lost"} ${us}–${them}`;
+      if (e && e.clientX) { tip.hidden = false; tip.textContent = `${opp}: ${us}–${them}`;
+        tip.style.left = Math.min(e.clientX + 12, window.innerWidth - 250) + "px"; tip.style.top = (e.clientY + 14) + "px"; }
+    };
+    g.addEventListener("mousemove", show);
+    g.addEventListener("mouseleave", () => { tip.hidden = true; });
+    g.addEventListener("focus", () => show());
+    g.addEventListener("click", () => show());
+    svg.appendChild(g);
+  });
+  row.appendChild(svg);
+  strips.insertBefore(row, readout);
+});
+
+/* Quarter charts */
+const qgrid = document.getElementById("qgrid");
+const QMAX = Math.max(...YEARS.flatMap(y => [...SEASONS[y].q.ind, ...SEASONS[y].q.opp].map(v => v / SEASONS[y].games)));
+YEARS.forEach(y => {
+  const s = SEASONS[y];
+  const card = document.createElement("article");
+  card.className = "qcard";
+  const QW = 260, QH = 150, base = QH - 18, top = 18;
+  const sc = v => (base - top) * v / QMAX;
+  let marks = `<line x1="0" x2="${QW}" y1="${base}" y2="${base}" stroke="var(--line)"/>`;
+  ["Q1","Q2","Q3","Q4"].forEach((lab, i) => {
+    const cx = (i + 0.5) * QW / 4, a = s.q.ind[i] / s.games, b = s.q.opp[i] / s.games, bw = 22;
+    marks += `<rect x="${cx - bw - 1}" y="${base - sc(a)}" width="${bw}" height="${sc(a)}" fill="var(--crimson)"/>
+      <rect x="${cx + 1}" y="${base - sc(b)}" width="${bw}" height="${sc(b)}" fill="var(--opp)"/>
+      <text class="v" x="${cx - bw / 2 - 1}" y="${base - sc(a) - 4}" text-anchor="middle">${a.toFixed(1)}</text>
+      <text x="${cx + bw / 2 + 1}" y="${base - sc(b) - 4}" text-anchor="middle">${b.toFixed(1)}</text>
+      <text x="${cx}" y="${QH - 3}" text-anchor="middle">${lab}</text>`;
+  });
+  const ot = s.q.ot[0] || s.q.ot[1] ? `Overtime points: ${s.q.ot[0]} to ${s.q.ot[1]}` : "No overtime points";
+  card.innerHTML = `<div class="y">${y}</div><svg viewBox="0 0 ${QW} ${QH}" role="img" aria-label="${y} points per game by quarter">${marks}</svg><div class="sec-note" style="font-size:12px">${ot}</div>`;
+  qgrid.appendChild(card);
+});
+
+/* Leaders table */
+const table = document.getElementById("leaders");
+table.innerHTML = `<thead><tr><th scope="col"><span class="sr"></span></th>${YEARS.map(y => `<th scope="col">${y}</th>`).join("")}</tr></thead>
+<tbody>${LEADERS.map(([cat, by]) => `<tr><th scope="row">${cat}</th>${YEARS.map(y => `<td><span class="n">${by[y][0]}</span><span class="s">${by[y][1]}</span></td>`).join("")}</tr>`).join("")}</tbody>`;
+</script>
+</body>
+</html>

@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 360" width="1280" height="360" role="img" aria-label="Hoosiers by the Numbers: Indiana football 2015, 2020, 2025, 2026">
+  <defs>
+    <pattern id="yards" width="128" height="360" patternUnits="userSpaceOnUse">
+      <rect x="126" y="0" width="2" height="360" fill="#F6F0E2" opacity="0.07"/>
+    </pattern>
+    <pattern id="hash" width="25.6" height="22" patternUnits="userSpaceOnUse">
+      <rect x="12" y="0" width="2" height="22" fill="#F6F0E2" opacity="0.45"/>
+    </pattern>
+  </defs>
+  <rect width="1280" height="360" fill="#990000"/>
+  <rect width="1280" height="360" fill="url(#yards)"/>
+  <rect y="338" width="1280" height="22" fill="url(#hash)"/>
+  <text x="64" y="84" fill="#F6F0E2" opacity="0.85" font-family="'Arial Narrow', 'Helvetica Neue', Arial, sans-serif" font-weight="700" font-size="22" letter-spacing="4">INDIANA FOOTBALL · 2015 · 2020 · 2025 · 2026</text>
+  <text x="60" y="190" fill="#F6F0E2" font-family="Impact, 'Arial Narrow Bold', 'Helvetica Neue', Arial, sans-serif" font-weight="900" font-size="104" letter-spacing="1">HOOSIERS BY</text>
+  <text x="60" y="290" fill="#F6F0E2" font-family="Impact, 'Arial Narrow Bold', 'Helvetica Neue', Arial, sans-serif" font-weight="900" font-size="104" letter-spacing="1">THE NUMBERS</text>
+  <g font-family="Impact, 'Arial Narrow Bold', Arial, sans-serif" text-anchor="end">
+    <text x="1216" y="200" fill="#F6F0E2" font-size="150" opacity="0.95">16–0</text>
+    <text x="1216" y="244" fill="#F6F0E2" opacity="0.8" font-family="'Arial Narrow', 'Helvetica Neue', Arial, sans-serif" font-weight="700" font-size="22" letter-spacing="3">2025 · PERFECT SEASON</text>
+  </g>
+</svg>
